@@ -1,0 +1,73 @@
+{
+  "nazwa_firmy": "Pirat",
+  "srodowisko": "produkcja",
+
+  "magazyny_plikow": [
+    {
+      "nazwa": "pirat-zdjecia-produktow",
+      "publiczny_dostep": false,
+      "szyfrowanie": true
+    },
+    {
+      "nazwa": "pirat-faktury-klientow",
+      "publiczny_dostep": true,
+      "szyfrowanie": false
+    },
+    {
+      "nazwa": "pirat-backup-bazy",
+      "publiczny_dostep": false,
+      "szyfrowanie": true
+    }
+  ],
+
+  "role_iam": [
+    {
+      "nazwa": "rola-aplikacja-backend",
+      "akcje": ["baza:Odczyt", "baza:Zapis"],
+      "zasoby": ["baza-zamowienia", "baza-klienci"]
+    },
+    {
+      "nazwa": "rola-skrypt-backup",
+      "akcje": ["*"],
+      "zasoby": ["*"]
+    },
+    {
+      "nazwa": "rola-panel-admin",
+      "akcje": ["panel:Odczyt", "panel:Zapis", "panel:UsunUzytkownika"],
+      "zasoby": ["panel-administracyjny"]
+    }
+  ],
+
+  "konta_administracyjne": [
+    {
+      "login": "admin_jan",
+      "mfa_wlaczone": true
+    },
+    {
+      "login": "admin_anna",
+      "mfa_wlaczone": false
+    },
+    {
+      "login": "admin_serwis",
+      "mfa_wlaczone": false
+    }
+  ],
+
+  "bazy_danych": [
+    {
+      "nazwa": "baza-klienci",
+      "szyfrowanie_w_spoczynku": true,
+      "publicznie_dostepna": false
+    },
+    {
+      "nazwa": "baza-zamowienia",
+      "szyfrowanie_w_spoczynku": false,
+      "publicznie_dostepna": false
+    }
+  ],
+
+  "polaczenia_sieciowe": {
+    "tls_wymuszony": true,
+    "panel_admin_dostepny_z_internetu": true
+  }
+}
